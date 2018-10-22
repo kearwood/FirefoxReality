@@ -172,6 +172,10 @@ struct DeviceDelegateOculusVR::State {
     vrapi_SetPropertyInt(&java, VRAPI_BLOCK_REMOTE_BUTTONS_WHEN_NOT_EMULATING_HMT, 0);
     // Reorient the headset after controller recenter.
     vrapi_SetPropertyInt(&java, VRAPI_REORIENT_HMD_ON_CONTROLLER_RECENTER, 1);
+    // Enable fixed-foveated rendering.
+    // TODO - This should be user configurable. VRAPI_SYS_PROP_FOVEATION_AVAILABLE
+    //        can be checked to determine if the option should be presented.
+    vrapi_SetPropertyInt(&java, VRAPI_FOVEATION_LEVEL, 2);
   }
 
   void GetImmersiveRenderSize(uint32_t& aWidth, uint32_t& aHeight) {
